@@ -4,14 +4,13 @@ import RecipeCard from './RecipeCard'
 export default class RecipesContainer extends Component {
 
     renderCards = () => {
-        this.props.allRecipes.map(recipe => {
+        return this.props.allRecipes.map(recipe => {
            return (
             <RecipeCard 
                 key={ recipe.id }
                 recipe={ recipe }
             />
-            )
-            
+            ) 
         })
     }
 

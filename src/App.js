@@ -1,5 +1,5 @@
 import './App.css';
-import CategoryMenu from './components/CategoryMenu';
+import CategoryMenu from './components/CategoryMenuContainer';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipesContainer from './components/RecipesContainer';
 import React, { Component } from 'react'
