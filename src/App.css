@@ -4,15 +4,12 @@
   gap: 10px;
   color: gold;
 }
-.form-input {
-  display: flex;
-  gap: 5
-}
-label {
+
+label, input {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  text-align: right;
+  text-align: left;
   width: 350px;
   line-height: 26px;
   margin-bottom: 5px;
