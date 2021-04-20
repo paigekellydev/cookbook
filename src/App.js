@@ -10,6 +10,7 @@ function App() {
       <AddRecipeForm />
       <RecipesContainer />
     </div>
+    
   );
 }
 

@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 
 export default class AddRecipeForm extends Component {
+
+    state = {
+        "recipe-name": ""
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
     render() {
         return (
             <div id="form-container">
-                <form id="add-recipe-form">
-                    <label>
+                <form id="add-recipe-form" onSubmit={this.handleSubmit}>
+                    <label className="form-input">
                         Add Recipe Name
                         <input name="recipe-name" placeholder="Enter recipe name"></input>
                     </label>
