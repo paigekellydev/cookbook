@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
-
-const baseUrl = 'http://localhost:3000'
-const recipeUrl = `${baseUrl}/recipes`
+import RecipeCard from './RecipeCard'
 
 export default class RecipesContainer extends Component {
 
-    state= {
-        allRecipes:[]
+    renderCards = () => {
+        this.props.allRecipes.map(recipe => {
+           return (
+            <RecipeCard 
+                key={ recipe.id }
+                recipe={ recipe }
+            />
+            )
+            
+        })
     }
 
-    componentDidMount() {
-        fetch(recipeUrl)
-            .then(response => response.json())
-            .then(allRecipes => this.setState({ allRecipes }))
-    }
     render() {
         return (
             <div>
+                {this.renderCards()}
                 <h2>Recipe Container</h2>
             </div>
         )
