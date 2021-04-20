@@ -5,8 +5,8 @@
 - Display all recipes.
 - Filter recipes by category
 - User can add a recipe
-- Basic stylign
+- Basic styling
 # Extra Features if time allows
 - Search for a specific recipe
-- Advanced stying
+- Advanced styling
 - Favorites!!
