@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import RecipeCard from '../components/RecipeCard'
 
 
-const baseUrl = 'http://localhost:3000'
-const recipeUrl = `${baseUrl}/recipes`
+// const baseUrl = 'http://localhost:3000'
+// const recipeUrl = `${baseUrl}/recipes`
 
 export default class RecipesContainer extends Component {
 
-    state= {
-        allRecipes:[]
-    }
+    // state= {
+    //     allRecipes:[]
+    // }
   
-    componentDidMount() {
-        fetch(recipeUrl)
-        .then(response => response.json())
-        .then(allRecipes => this.setState({ allRecipes }))
-    }
+    // componentDidMount() {
+    //     fetch(recipeUrl)
+    //     .then(response => response.json())
+    //     .then(allRecipes => this.setState({ allRecipes }))
+    // }
   // function to add new recipe from form to allRecipes
 
     renderCards = () => {
@@ -33,7 +33,6 @@ export default class RecipesContainer extends Component {
         return (
             <div>
                 {this.renderCards()}
-                <h2>Recipe Container</h2>
             </div>
         )
     }

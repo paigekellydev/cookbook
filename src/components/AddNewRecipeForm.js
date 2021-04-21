@@ -1,26 +1,49 @@
 import React, { Component } from 'react'
 
+const baseUrl = 'http://localhost:3000'
+const recipeUrl = `${baseUrl}/recipes`
+
 export default class AddRecipeForm extends Component {
 
     state = {
         showForm: false,
         form: null,
-        recipeName: "" 
     }
+    
+    // newRecipe = {
+    //     recipeName: "",
+    //     category: "",
+    //     cookTime: null,
+    //     ingredients: "",
+    //     directions: "",
+    //     img: ""
+
+    // }
 
     handleSubmit = (event) => {
         event.preventDefault()
     }
+
     showForm = (event) => {    
         this.setState({ showForm: true })
-        document.addEventListener('click', this.closeForm);
+        // document.addEventListener('click', this.closeForm);
     }
 
-    closeForm = (event) => {
-        if (!event.target.classList.contains('form')) {
-            this.setState({ showForm: false });  
-            document.removeEventListener('click', this.closeForm);
-        }
+    // closeForm = (event) => {
+    //     if (!event.target.classList.contains('form')) {
+    //         this.setState({ showForm: false });  
+    //         document.removeEventListener('click', this.closeForm);
+    //     }
+    // }
+    postRecipe = () => {
+        fetch(recipeUrl, {
+            method:"POST",
+            headers: {
+                'Content-Type':'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify()
+        })
     }
 
     renderForm = () => {
@@ -49,7 +72,7 @@ export default class AddRecipeForm extends Component {
                     <input name="directions" placeholder="Enter recipe directions"/>
                     <label className="image-url">Add Recipe Image</label>
                     <input name="image-url" placeholder="Add image url"/>
-                    <label className="submit" type="submit">Submit</label>
+                    <button onClick={this.postRecipe}className="submit" type="submit">Submit</button>
                 </form>
                 </div> )
             : ( null )

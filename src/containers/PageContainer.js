@@ -4,10 +4,20 @@ import AddNewRecipeForm from '../components/AddNewRecipeForm';
 import RecipesContainer from './RecipesContainer';
 import DiscoverRecipesMenu from '../components/DiscoverRecipesMenu';
 
-export default class HomePageContainer extends Component {
+const baseUrl = 'http://localhost:3000'
+const recipeUrl = `${baseUrl}/recipes`
+
+export default class PageContainer extends Component {
 
     state ={
-        display: true
+        display: true,
+        allRecipes:[]
+    }
+  
+    componentDidMount() {
+        fetch(recipeUrl)
+        .then(response => response.json())
+        .then(allRecipes => this.setState({ allRecipes }))
     }
 
 
@@ -35,7 +45,8 @@ export default class HomePageContainer extends Component {
                    Welcome
                 </header>
                <AddNewRecipeForm />
-               <DiscoverRecipesMenu />              
+               <DiscoverRecipesMenu />
+               <RecipesContainer allRecipes={this.state.allRecipes}/>      
             </div>
         )
     }

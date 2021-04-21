@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import RecipesContainer from '../containers/RecipesContainer'
 
 export default class DiscoverRecipesMenu extends Component {
         
@@ -19,6 +20,12 @@ export default class DiscoverRecipesMenu extends Component {
         }
     }
 
+    displayAllRecipes = (event) => {
+        return (
+             <RecipesContainer /> 
+        )
+    }
+
     renderDropDownMenu = () => {
         return (
             this.state.showMenu ? (
@@ -28,7 +35,7 @@ export default class DiscoverRecipesMenu extends Component {
                     this.state.dropdownMenu = element;
                     }}
                 >
-                    <button> All Recipes </button>
+                    <button onClick={this.displayAllRecipes}> All Recipes </button>
                     <button> Appetizers </button>
                     <button> Breads </button>
                     <button> Cookies and Desserts </button>
