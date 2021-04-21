@@ -3,23 +3,25 @@ import React, { Component } from 'react'
 export default class AddRecipeForm extends Component {
 
     state = {
-        showMenu: false,
-        dropdownMenu: null,
+        showForm: false,
+        form: null,
         "recipe-name": "" 
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
     }
-    showForm = (event) => {        
+    showForm = (event) => {
+        console.log(this.state.showForm)      
         this.setState({ showForm: true })
         document.addEventListener('click', this.closeForm);
+
         // when we try to add the closeMenu function, it automatically triggers both showMenu and closeMenu event 
         // listeners
     }
 
     closeForm = (event) => {
-        if (!event.target.classList.contains('drop-down')) {
+        if (!event.target.classList.contains('form')) {
             this.setState({ showForm: false });  
             document.removeEventListener('click', this.closeForm);
         }
@@ -27,7 +29,13 @@ export default class AddRecipeForm extends Component {
 
     renderForm = () => {
         return (
-            <div>
+            this.state.showForm ? (
+                <div
+                    className="form"
+                    ref={(element) => {
+                    this.state.showForm = element;
+                    }}
+                >
                 <form id="add-recipe-form" onSubmit={this.handleSubmit}>
                     <label className="recipe-name">
                         Add Recipe Name
@@ -47,15 +55,16 @@ export default class AddRecipeForm extends Component {
                     <input name="image-url" placeholder="Add image url"/>
                     <label className="submit" type="submit">Submit</label>
                 </form>
-            </div>
+                </div> )
+            : ( null )
         )
     }
 
     render() {
         return (
-            <div id="form-container">
+            <div>
+                <button onClick={this.showForm}  className="add-new-recipe-button">Add New Recipe</button>    
                 {this.renderForm()}
-
             </div>
         )
     }
