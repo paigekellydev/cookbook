@@ -34,7 +34,7 @@ export default class HomePageContainer extends Component {
                <header>
                    Welcome
                 </header>
-               <button onClick={() => <AddNewRecipeForm />}>Add New Recipe</button>
+               <AddNewRecipeForm />
                <DiscoverRecipesMenu />              
             </div>
         )
