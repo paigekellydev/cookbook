@@ -5,19 +5,15 @@ export default class AddRecipeForm extends Component {
     state = {
         showForm: false,
         form: null,
-        "recipe-name": "" 
+        recipeName: "" 
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
     }
-    showForm = (event) => {
-        console.log(this.state.showForm)      
+    showForm = (event) => {    
         this.setState({ showForm: true })
         document.addEventListener('click', this.closeForm);
-
-        // when we try to add the closeMenu function, it automatically triggers both showMenu and closeMenu event 
-        // listeners
     }
 
     closeForm = (event) => {
@@ -33,7 +29,7 @@ export default class AddRecipeForm extends Component {
                 <div
                     className="form"
                     ref={(element) => {
-                    this.state.showForm = element;
+                    this.state.form = element;
                     }}
                 >
                 <form id="add-recipe-form" onSubmit={this.handleSubmit}>
@@ -63,7 +59,7 @@ export default class AddRecipeForm extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.showForm}  className="add-new-recipe-button">Add New Recipe</button>    
+                <button onClick={this.showForm}  className="form">Add New Recipe</button>    
                 {this.renderForm()}
             </div>
         )

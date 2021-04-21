@@ -9,9 +9,7 @@ export default class DiscoverRecipesMenu extends Component {
     
     showMenu = (event) => {        
         this.setState({ showMenu: true })
-        document.addEventListener('click', this.closeMenu);
-        // when we try to add the closeMenu function, it automatically triggers both showMenu and closeMenu event 
-        // listeners
+        document.addEventListener('click', this.closeMenu); 
     }
     
     closeMenu = (event) => {
