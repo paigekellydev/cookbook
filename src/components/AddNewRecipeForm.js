@@ -29,6 +29,8 @@ export default class AddRecipeForm extends Component {
                     <input name="directions" placeholder="Enter recipe directions"></input>
                     <label className="image-url">Add Recipe Image</label>
                     <input name="image-url" placeholder="Add image url"></input>
+                    <label className="submit"></label>
+                    <input name="submit" type="submit">Submit</input>
                 </form>
             </div>
         )
