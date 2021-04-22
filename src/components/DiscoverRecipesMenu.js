@@ -20,13 +20,13 @@ export default class DiscoverRecipesMenu extends Component {
         }
     }
 
-    displayAllRecipes = (event) => {
-        return (
-             <RecipesContainer /> 
-        )
+    handleClick = (event) => {
+        this.props.discoverByCategory(event.target.textContent)
     }
-
+    
     renderDropDownMenu = () => {
+
+
         return (
             this.state.showMenu ? (
                 <div
@@ -35,15 +35,15 @@ export default class DiscoverRecipesMenu extends Component {
                     this.state.dropdownMenu = element;
                     }}
                 >
-                    <button onClick={this.displayAllRecipes}> All Recipes </button>
-                    <button> Appetizers </button>
-                    <button> Breads </button>
-                    <button> Cookies and Desserts </button>
-                    <button> Meats </button>
-                    <button> Pasta </button>
-                    <button> Poultry </button>
-                    <button> Salads and Soups </button>
-                    <button> Vegetables </button>
+                    <button onClick={this.handleClick}>All Recipes</button>
+                    <button onClick={this.handleClick}>Appetizers</button>
+                    <button onClick={this.handleClick}>Breads</button>
+                    <button onClick={this.handleClick}>Cookies and Desserts</button>
+                    <button onClick={this.handleClick}>Meats</button>
+                    <button onClick={this.handleClick}>Pasta</button>
+                    <button onClick={this.handleClick}>Poultry</button>
+                    <button onClick={this.handleClick}>Salads and Soups</button>
+                    <button onClick={this.handleClick}>Vegetables</button>
                 </div> )
             : ( null )
         )

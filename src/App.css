@@ -25,9 +25,8 @@ img {
   color: gold;
 }
 
-html {
+/* html {
   height: 100%;
-  /* max-height: 600px; */
   width: 1000px;
   background-color: rgba(12, 113, 207, 0.4);
   background-image:   
@@ -50,9 +49,9 @@ html {
     1000px,
     400px 260px;
   animation: 50s para infinite linear;
-  }
+  } */
 
-@keyframes para {
+/* @keyframes para {
   100% {
     background-position: 
       -5000px 20%,
@@ -61,4 +60,4 @@ html {
       1000px 100%,
       400px 0;
     }
-  }
+  } */

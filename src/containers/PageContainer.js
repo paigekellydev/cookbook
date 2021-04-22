@@ -10,15 +10,9 @@ const recipeUrl = `${baseUrl}/recipes`
 export default class PageContainer extends Component {
 
     state ={
-        display: true,
         allRecipes:[],
         newRecipeId: 0,
-        appetizers: [],
-        // breads: [],
-        // cookiesDesserts: [],
-        // meats: [],
-        // saladsSoups: [],
-        // vegetables: [],
+        filteredRecipes: []
     }
   
     componentDidMount() {
@@ -38,17 +32,16 @@ export default class PageContainer extends Component {
         })
     }
 
-    // discoverAppetizers = (appetizer) => {
-    //     const appetizerRecipes = this.state.allRecipes.filter(recipe => {
-    //         (recipe.category === appetizer.category)
-    //     })
+    discoverByCategory = (categoryString) => {
+        if(categoryString === 'All Recipes') {
+            return this.setState({ filteredRecipes: this.state.allRecipes })
+        }
 
-    //     console.log(appetizersRecipes)
-    // }
-
-
-    viewAllRecipes = () => {
-        console.log('recipessssss')
+        const filteredRecipes = this.state.allRecipes.filter(recipe => {
+            return recipe.category === categoryString
+        })
+        
+        this.setState({ filteredRecipes })
     }
 
     render() {
@@ -63,9 +56,14 @@ export default class PageContainer extends Component {
                     newRecipeId={ this.state.newRecipeId }
                 />
                <DiscoverRecipesMenu
-
+                    recipes={ this.state.filteredRecipes }
+                    allRecipes={ this.state.allRecipes }
+                    discoverByCategory={ this.discoverByCategory }
                />
-               <RecipesContainer allRecipes={this.state.allRecipes}/>      
+               <RecipesContainer 
+                    allRecipes={ this.state.allRecipes }
+                    filteredRecipes={ this.state.filteredRecipes }
+                />      
             </div>
         )
     }
