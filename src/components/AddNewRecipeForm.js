@@ -10,6 +10,7 @@ export default class AddRecipeForm extends Component {
         form: null,
         newRecipe: {
             recipeName: "",
+            kitchen: "",
             category: "",
             cookTime: null,
             prepTime: null,
@@ -25,6 +26,7 @@ export default class AddRecipeForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.state.newRecipe.recipeName = event.target.name.value
+        this.state.newRecipe.kitchen = event.target.kitchen.value
         this.state.newRecipe.category = event.target.category.value
         this.state.newRecipe.cookTime = event.target.cook.value
         this.state.newRecipe.prepTime = event.target.prep.value
@@ -33,6 +35,7 @@ export default class AddRecipeForm extends Component {
         this.state.newRecipe.img = event.target.image.value
 
         event.target.name.value = "";
+        event.target.kitchen.value = "";
         event.target.category.value = "";
         event.target.cook.value = null;
         event.target.prep.value = null;
@@ -78,10 +81,10 @@ export default class AddRecipeForm extends Component {
                     }}
                 >
                 <form id="add-recipe-form" onSubmit={this.handleSubmit}>
-                    <label className="name">
-                        Add Recipe Name
-                    </label>
+                    <label className="name">Add Recipe Name</label>
                     <input name="name" placeholder="Enter recipe name"/>
+                    <label className="kitchen">From The Kitchen Of:</label>
+                    <input name="kitchen" placeholder="Enter cook's name"/>
                     <label className="category">Select Category</label>
                     <input name="category" placeholder="Enter category type"/>
                     <label className="prep">Add Prep Time</label>
