@@ -8,22 +8,54 @@ export default class AddRecipeForm extends Component {
     state = {
         showForm: false,
         form: null,
+        newRecipe: {
+            recipeName: "",
+            category: "",
+            cookTime: null,
+            prepTime: null,
+            ingredients: "",
+            directions: "",
+            img: "",
+            id: this.props.newRecipeId
+        }
     }
     
-    // newRecipe = {
-    //     recipeName: "",
-    //     category: "",
-    //     cookTime: null,
-    //     ingredients: "",
-    //     directions: "",
-    //     img: ""
 
-    // }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.state.newRecipe.recipeName = event.target.name.value
+        this.state.newRecipe.category = event.target.category.value
+        this.state.newRecipe.cookTime = event.target.cook.value
+        this.state.newRecipe.prepTime = event.target.prep.value
+        this.state.newRecipe.ingredients = event.target.ingredients.value
+        this.state.newRecipe.directions = event.target.directions.value
+        this.state.newRecipe.img = event.target.image.value
+
+        event.target.name.value = "";
+        event.target.category.value = "";
+        event.target.cook.value = null;
+        event.target.prep.value = null;
+        event.target.ingredients.value = "";
+        event.target.directions.value = "";
+        event.target.image.value = "";
+
+        const newRecipe = this.state.newRecipe
+
+        this.props.addNewRecipeToState(newRecipe)
+        
+        fetch(recipeUrl, {
+            method:"POST",
+            headers: {
+                'Content-Type':'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify(this.state.newRecipe)
+            }
+        )
     }
 
+    
     showForm = (event) => {    
         this.setState({ showForm: true })
         // document.addEventListener('click', this.closeForm);
@@ -35,16 +67,6 @@ export default class AddRecipeForm extends Component {
     //         document.removeEventListener('click', this.closeForm);
     //     }
     // }
-    postRecipe = () => {
-        fetch(recipeUrl, {
-            method:"POST",
-            headers: {
-                'Content-Type':'application/json',
-                "Accept": 'application/json'
-            },
-            body: JSON.stringify()
-        })
-    }
 
     renderForm = () => {
         return (
@@ -56,22 +78,22 @@ export default class AddRecipeForm extends Component {
                     }}
                 >
                 <form id="add-recipe-form" onSubmit={this.handleSubmit}>
-                    <label className="recipe-name">
+                    <label className="name">
                         Add Recipe Name
                     </label>
-                    <input name="recipe-name" placeholder="Enter recipe name"/>
+                    <input name="name" placeholder="Enter recipe name"/>
                     <label className="category">Select Category</label>
                     <input name="category" placeholder="Enter category type"/>
-                    <label className="prep-time">Add Prep Time</label>
-                    <input name="prep-time" placeholder="Enter prep time"/>
-                    <label className="cook-time">Add Cook Time</label>
-                    <input name="cook-time" placeholder="Enter cook time"/>
+                    <label className="prep">Add Prep Time</label>
+                    <input name="prep" placeholder="Enter prep time"/>
+                    <label className="cook">Add Cook Time</label>
+                    <input name="cook" placeholder="Enter cook time"/>
                     <label className="ingredients">Add Ingredients</label>
                     <input name="ingredients" placeholder="Enter ingredients"/>
                     <label className="directions">Add Recipe Directions</label>
                     <input name="directions" placeholder="Enter recipe directions"/>
-                    <label className="image-url">Add Recipe Image</label>
-                    <input name="image-url" placeholder="Add image url"/>
+                    <label className="image">Add Recipe Image</label>
+                    <input name="image" placeholder="Add image url"/>
                     <button onClick={this.postRecipe}className="submit" type="submit">Submit</button>
                 </form>
                 </div> )

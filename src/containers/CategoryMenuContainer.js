@@ -1,6 +1,11 @@
 import React from 'react'
 
 export default function CategoryMenu() {
+
+    // handleAppetizers = () => {
+    //     this.props.handleAppetizers()
+    // }
+
     return (
         <section id="categories">
             <button id="appetizers" className="category">

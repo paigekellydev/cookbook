@@ -11,28 +11,41 @@ export default class PageContainer extends Component {
 
     state ={
         display: true,
-        allRecipes:[]
+        allRecipes:[],
+        newRecipeId: 0,
+        appetizers: [],
+        // breads: [],
+        // cookiesDesserts: [],
+        // meats: [],
+        // saladsSoups: [],
+        // vegetables: [],
     }
   
     componentDidMount() {
         fetch(recipeUrl)
-        .then(response => response.json())
-        .then(allRecipes => this.setState({ allRecipes }))
+            .then(response => response.json())
+            .then(allRecipes => this.setState({ 
+                allRecipes: allRecipes,
+                newRecipeId: allRecipes[allRecipes.length -1].id + 1
+            }))
+
     }
 
+    addNewRecipeToState = (newRecipe) => {
+        this.setState({
+            allRecipes: [...this.state.allRecipes, newRecipe],
+            newRecipeId: this.state.newRecipeId + 1
+        })
+    }
 
-    // <CategoryMenu />
-    // <AddRecipeForm allRecipes={ this.state.allRecipes }/>
-    // <RecipesContainer allRecipes={ this.state.allRecipes }/>
+    // discoverAppetizers = (appetizer) => {
+    //     const appetizerRecipes = this.state.allRecipes.filter(recipe => {
+    //         (recipe.category === appetizer.category)
+    //     })
 
-    // viewAllRecipes will be a drop down menu with category selection, once a category is selected it
-    // will filter out recipes that don't match
-
-    // handleClick will just take you a the form to submit new recipe
-
-    // handleAddRecipe = (event) => {
-    //     return <AddNewRecipeForm />
+    //     console.log(appetizersRecipes)
     // }
+
 
     viewAllRecipes = () => {
         console.log('recipessssss')
@@ -44,8 +57,14 @@ export default class PageContainer extends Component {
                <header>
                    Welcome
                 </header>
-               <AddNewRecipeForm />
-               <DiscoverRecipesMenu />
+               <AddNewRecipeForm 
+                    allRecipes={ this.state.allRecipes } 
+                    addNewRecipeToState={ this.addNewRecipeToState }
+                    newRecipeId={ this.state.newRecipeId }
+                />
+               <DiscoverRecipesMenu
+
+               />
                <RecipesContainer allRecipes={this.state.allRecipes}/>      
             </div>
         )
