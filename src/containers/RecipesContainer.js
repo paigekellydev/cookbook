@@ -25,7 +25,7 @@ export default class RecipesContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="recipe-container">
                 {this.renderCards()}
             </div>
         )

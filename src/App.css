@@ -1,11 +1,35 @@
-#add-recipe-form{
+*{
+  font-family: 'Segoe UI','Roboto', sans-serif;
+}
+.recipe-container, .big{
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: gold;
+  align-content:center;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100%;
 }
 
+#add-recipe-form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(0, 0, 0);
+}
+button.form, button.drop-down{
+  display: flex;
+}
+
+header{
+  background-color: rgb(203, 195, 153);
+  text-align: center;
+  align-items: flex-end;
+  width: 100%;
+}
 label, input {
+  align-items: center;
+  align-content: center;
+  background-color: rgb(203, 195, 153);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -17,47 +41,115 @@ label, input {
 
 #categories{
   display: flex;
-  color: gold;
+  align-items: center;
+  color: rgb(203, 195, 153);
 }
 
 img {
-  width:100px;
-  color: gold;
+  width: 150px;
+  color: forestgreen;
+}
+.card{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(203, 195, 153, 0.571);
+  font-size: 20px;
+  padding: 60px;
+  width: 200px;
+  margin:10px;
+}
+.drop-down, .form{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgba(203, 195, 153, 0.571);
+  font-size: 20px;
+  padding: 20px;
+  margin: auto;
 }
 
-/* html {
-  height: 100%;
-  width: 1000px;
-  background-color: rgba(12, 113, 207, 0.4);
-  background-image:   
-    url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
-    url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
-    url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
-    url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
-    url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
-  background-repeat: repeat-x;
-  background-position: 
-    0 0%,
-    0 100%,
-    0 100%,
-    0 50%,
-    0 0;
-  background-size: 
-    2500px,
-    800px,
-    500px 200px,
-    1000px,
-    400px 260px;
-  animation: 50s para infinite linear;
-  } */
+button {
+background-color: rgb(203, 195, 153);
+box-sizing: border-box;
+padding: 0.2em 1.45em;
+margin: auto;
+text-decoration: none;
+font-family: 'Segoe UI','Roboto', sans-serif;
+font-weight: 400;
+font-size: 30;
+color: #000000;
+text-align: center;
+position: relative;
+}
+button:hover{
+    border-color: fuchsia;
+ }
+button:active{
+      background-color: ghostwhite;
+}
+      @media all and (max-width:30em){
+button{
+          display: block;
+          margin:0.2em auto;
+        }
+      }
 
-/* @keyframes para {
-  100% {
-    background-position: 
-      -5000px 20%,
-      -800px 95%,
-      500px 50%,
-      1000px 100%,
-      400px 0;
-    }
-  } */
+      html, body, svg {
+        width: 100%;
+        height: 100%;
+        margin: 0; padding: 0;
+        display: block;
+      }
+      
+      body:hover [filter],
+      body:active [filter]
+      {filter: none;}
+      
+      #p {
+        fill: black;
+        fill-opacity: 0.2;
+        stroke: white;
+        stroke-width: 2.3px;
+        stroke-dasharray: 200 188.5;
+        animation: stroke-color 11s infinite linear;
+      }
+      #p .wrapper, #p use {
+        animation: draw 4s infinite linear;  
+      }
+      #p use:nth-child(3){
+        fill: white;
+        fill-opacity: 0.1;
+        animation-delay: -2s;
+      }
+      
+      :root {
+        animation: back-color 11s infinite linear;
+      }
+      
+      @keyframes draw {
+        from {
+          stroke-dashoffset: 388.5;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes stroke-color {
+        0%      {stroke: hsl(  0,100%,70%);}
+        16.667% {stroke: hsl( 60,100%,70%);}
+        33.333% {stroke: hsl(120,100%,70%);}
+        50%     {stroke: hsl(180,100%,70%);}
+        66.667% {stroke: hsl(240,100%,70%);}
+        83.333% {stroke: hsl(300,100%,70%);}
+        100%    {stroke: hsl(360,100%,70%);}
+      }
+      @keyframes back-color {
+        0%      {background: hsl(  0,80%,15%);}
+        16.667% {background: hsl( 60,80%,15%);}
+        33.333% {background: hsl(120,80%,15%);}
+        50%     {background: hsl(180,80%,15%);}
+        66.667% {background: hsl(240,80%,15%);}
+        83.333% {background: hsl(300,80%,15%);}
+        100%    {background: hsl(360,80%,15%);}
+      }

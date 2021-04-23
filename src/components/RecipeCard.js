@@ -11,10 +11,12 @@ export default class RecipeCard extends Component {
 
     render() {
         return (
-            <div>
+            
+            <div className="card">
+                <span>
+                <img src={this.props.recipe.img} />
                 <h1>Recipe Name: {this.props.recipe.recipeName}</h1>
                 <p>Kitchen of: {this.props.recipe.kitchen}</p>
-                <img src={this.props.recipe.img} />
                 <p>Category: {this.props.recipe.category}</p>
                 <p>Prep Time: {this.props.recipe.prepTime} minutes</p>
                 <p>Cook Time: {this.props.recipe.cookTime} minutes</p>
@@ -30,7 +32,9 @@ export default class RecipeCard extends Component {
                         {this.renderList(this.props.recipe.directions)}
                     </ol>
                 </section>
+                </span>
             </div>
+            
         )
     }
 }

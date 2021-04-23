@@ -47,9 +47,10 @@ export default class PageContainer extends Component {
     render() {
         return (
             <div>
-               <header>
-                   Welcome
+               <header id="h">
+                   <h1>Creque's Cookbook</h1>
                 </header>
+                <div className="big">
                <AddNewRecipeForm 
                     allRecipes={ this.state.allRecipes } 
                     addNewRecipeToState={ this.addNewRecipeToState }
@@ -60,6 +61,7 @@ export default class PageContainer extends Component {
                     allRecipes={ this.state.allRecipes }
                     discoverByCategory={ this.discoverByCategory }
                />
+               </div>
                <RecipesContainer 
                     allRecipes={ this.state.allRecipes }
                     filteredRecipes={ this.state.filteredRecipes }

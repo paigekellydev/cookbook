@@ -35,15 +35,15 @@ export default class DiscoverRecipesMenu extends Component {
                     this.state.dropdownMenu = element;
                     }}
                 >
-                    <button onClick={this.handleClick}>All Recipes</button>
-                    <button onClick={this.handleClick}>Appetizers</button>
-                    <button onClick={this.handleClick}>Breads</button>
-                    <button onClick={this.handleClick}>Cookies and Desserts</button>
-                    <button onClick={this.handleClick}>Meats</button>
-                    <button onClick={this.handleClick}>Pasta</button>
-                    <button onClick={this.handleClick}>Poultry</button>
-                    <button onClick={this.handleClick}>Salads and Soups</button>
-                    <button onClick={this.handleClick}>Vegetables</button>
+                    <button className="button" onClick={this.handleClick}>All Recipes</button>
+                    <button className="button" onClick={this.handleClick}>Appetizers</button>
+                    <button className="button" onClick={this.handleClick}>Breads</button>
+                    <button className="button" onClick={this.handleClick}>Cookies and Desserts</button>
+                    <button className="button" onClick={this.handleClick}>Meats</button>
+                    <button className="button" onClick={this.handleClick}>Pasta</button>
+                    <button className="button" onClick={this.handleClick}>Poultry</button>
+                    <button className="button" onClick={this.handleClick}>Salads and Soups</button>
+                    <button className="button" onClick={this.handleClick}>Vegetables</button>
                 </div> )
             : ( null )
         )
