@@ -24,7 +24,7 @@ export default class AddRecipeForm extends Component {
 
 
     handleSubmit = (event) => {
-        //event.preventDefault()
+        event.preventDefault()
         this.state.newRecipe.recipeName = event.target.name.value
         this.state.newRecipe.kitchen = event.target.kitchen.value
         this.state.newRecipe.category = event.target.category.value
@@ -61,44 +61,42 @@ export default class AddRecipeForm extends Component {
     
     showForm = (event) => {    
         this.setState({ showForm: true })
-         document.addEventListener('click', this.closeForm);
+        // document.addEventListener('click', this.closeForm);
     }
 
-     closeForm = (event) => {
-         if (!event.target.classList.contains('form')) {
-             this.setState({ showForm: false });  
-             document.removeEventListener('click', this.closeForm);
-            }  
-        }
+    // closeForm = (event) => {
+    //     if (!event.target.classList.contains('form')) {
+    //         this.setState({ showForm: false });  
+    //         document.removeEventListener('click', this.closeForm);
+    //     }
+    // }
 
     renderForm = () => {
         return (
             this.state.showForm ? (
-                <div>
-                <form 
-                id="add-recipe-form" 
-                onSubmit={this.handleSubmit}
-                className="form"
-                ref={(element) => {
-                this.state.form = element;
-                }}
+                <div
+                    className="form"
+                    ref={(element) => {
+                    this.state.form = element;
+                    }}
                 >
-                    <label className="name, form">Add Recipe Name</label>
-                    <input className="name, form" name="name, form" placeholder="Enter recipe name"/>
-                    <label className="kitchen, form">From The Kitchen Of:</label>
-                    <input className="form"name="kitchen" placeholder="Enter cook's name"/>
-                    <label className="category, form">Select Category</label>
-                    <input className="form" name="category" placeholder="Enter category type"/>
-                    <label className="prep, form">Add Prep Time (Number of Minutes)</label>
-                    <input className="form" name="prep" placeholder="Enter prep time"/>
-                    <label className="cook, form">Add Cook Time (Number of Minutes)</label>
-                    <input className="form" name="cook" placeholder="Enter cook time"/>
-                    <label className="ingredients, form">Add Ingredients (Separate by Commas)</label>
-                    <input className="form" name="ingredients" placeholder="Enter ingredients"/>
-                    <label className="directions, form">Add Recipe Directions (Separate by Commas)</label>
-                    <input className="form" name="directions" placeholder="Enter recipe directions"/>
-                    <label className="image, form">Add Recipe Image (link)</label>
-                    <input className="form" name="image" placeholder="Add image url"/>
+                <form id="add-recipe-form" onSubmit={this.handleSubmit}>
+                    <label className="name">Add Recipe Name</label>
+                    <input name="name" placeholder="Enter recipe name"/>
+                    <label className="kitchen">From The Kitchen Of:</label>
+                    <input name="kitchen" placeholder="Enter cook's name"/>
+                    <label className="category">Select Category</label>
+                    <input name="category" placeholder="Enter category type"/>
+                    <label className="prep">Add Prep Time</label>
+                    <input name="prep" placeholder="Enter prep time"/>
+                    <label className="cook">Add Cook Time</label>
+                    <input name="cook" placeholder="Enter cook time"/>
+                    <label className="ingredients">Add Ingredients</label>
+                    <input name="ingredients" placeholder="Enter ingredients"/>
+                    <label className="directions">Add Recipe Directions</label>
+                    <input name="directions" placeholder="Enter recipe directions"/>
+                    <label className="image">Add Recipe Image</label>
+                    <input name="image" placeholder="Add image url"/>
                     <button onClick={this.postRecipe}className="submit" type="submit">Submit</button>
                 </form>
                 </div> )
