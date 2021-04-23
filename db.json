@@ -21,31 +21,6 @@
       "directions": "Peel avocados and smash to desired texture, Add cilantro jalapeños garlic and lime juice, Mix together, Refrigerate",
       "img": "https://hips.hearstapps.com/del.h-cdn.co/assets/15/52/1450824800-creamy-avocado-dip-delish.jpg",
       "id": 2
-<<<<<<< HEAD
-=======
-    },
-    {
-      "recipeName": "TEst",
-      "kitchen": "Test",
-      "category": "Test",
-      "cookTime": "Test",
-      "prepTime": "Test",
-      "ingredients": "Test",
-      "directions": "Test",
-      "img": "",
-      "id": 3
-    },
-    {
-      "recipeName": "s",
-      "kitchen": "da",
-      "category": "sa",
-      "cookTime": "1",
-      "prepTime": "1",
-      "ingredients": "sa",
-      "directions": "sa",
-      "img": "",
-      "id": 4
->>>>>>> 6413f4f1994b897fccbaf655ac9f27ce804859df
     }
   ]
 }

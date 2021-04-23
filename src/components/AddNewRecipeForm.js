@@ -24,7 +24,6 @@ export default class AddRecipeForm extends Component {
 
 
     handleSubmit = (event) => {
-        event.preventDefault()
         this.state.newRecipe.recipeName = event.target.name.value
         this.state.newRecipe.kitchen = event.target.kitchen.value
         this.state.newRecipe.category = event.target.category.value
@@ -61,7 +60,7 @@ export default class AddRecipeForm extends Component {
     
     showForm = (event) => {    
         this.setState({ showForm: true })
-        // document.addEventListener('click', this.closeForm);
+        //document.addEventListener('click', this.closeForm);
     }
 
     // closeForm = (event) => {
