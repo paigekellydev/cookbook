@@ -15,11 +15,7 @@ Welcome to Creque's Cookbook! Here users can view all of the Creque's family rec
 
 # Website demo
 
-### Add new recipe
-![Alt Text]()
-
-### Discover recipe by category
-![Alt Text]()
+![Alt Text](https://media.giphy.com/media/1OhZJln8Mspv4XnqhO/giphy.gif)
 
 # Built With:
 - HTML
